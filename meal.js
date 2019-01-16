@@ -1,4 +1,5 @@
-const meals = [
+const fourth_meal = {
+    meals: [
     'breakfast',
     'second breakfast',
     'elevenses',
@@ -7,7 +8,7 @@ const meals = [
     'dinner',
     'supper'
 ]
+}
 
-const fourth_meal = meals[3];
 
-console.log(fourth_meal);
+console.log(fourth_meal.meals[3]);
