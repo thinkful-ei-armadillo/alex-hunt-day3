@@ -37,3 +37,12 @@ function findById(items, idNum) {
         }
     }
 }
+
+function validateKeys(object, expectedKeys) {
+    for (let i = 0; i < expectedKeys.length; i++) {
+        if (!(expectedKeys[i] in object)) {
+            return false;
+        }
+    }
+    return (expectedKeys.length === Object.keys(object).length);
+}
