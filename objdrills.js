@@ -85,7 +85,57 @@ const employees = [
 //Properties that aren't there://
 //-----------------------------//
 
-employees.forEach(obj => {
-    console.log(`${obj.jobTitle} ${obj.name} reports to ${obj.boss ? 'reports to '+obj.boss : "doesn't report to anybody"}.`);
-});
+// employees.forEach(obj => {
+//     console.log(`${obj.jobTitle} ${obj.name} reports to ${obj.boss ? 'reports to '+obj.boss : "doesn't report to anybody"}.`);
+// });
 
+//----------------------------//
+//Factory Functions with LOTR://
+//----------------------------//
+
+class Character {
+    constructor(name, race, origin, weapon='no weapon', attack, defense ) {
+        this.name = name;
+        this.nickname = name.split(' ')[0];
+        this.race = race;
+        this.origin = origin;
+        this.attack = attack;
+        this.defense = defense;
+        this.weapon = weapon;
+    }
+
+    describe() {
+        return `${this.name} is a ${this.race} from ${this.origin} who uses ${this.weapon}.`;
+    }
+
+    evaluateFight(enemy) {
+        const x = Math.max(this.attack - enemy.defense, 0);
+        const y = Math.max(enemy.attack - this.defense, 0);
+        return `Your opponent takes ${x} and you receive ${y}.`;
+    }
+}
+
+let characters = [
+    new Character('Gandalf the White', 'Wizard', 'Middle Earth', 'a wizard staff', 10, 6),
+    new Character('Bilbo Baggins', 'Hobbit', 'The Shire', 'the Ring', 2, 1),
+    new Character('Frodo Baggins', 'Hobbit', 'The Shire', 'Sting and Barrow Blade', 3, 2),
+    new Character('Aragorn son of Arathorn', 'Man', 'Dunnendain', 'Anduril', 6, 8),
+    new Character('Legolas', 'Elf', 'Woodland Realm', 'a Bow and Arrow', 8, 5),
+    new Character('Arwen Undomiel', 'Half-Elf', 'Rivendell', 'Hadhafang', 7, 4),
+]
+
+//Tests:
+
+//find test:
+//console.log(characters.find(obj => obj.nickname === 'Aragorn').describe());
+
+//filter test:
+//const hobbits = characters.filter(obj => obj.race === 'Hobbit');
+// hobbits.forEach(obj => { console.log(obj.describe()) });
+
+//filter test 2:
+// const attackOver5 = characters.filter(obj => obj.attack > 5);
+// attackOver5.forEach(obj => { console.log(obj.evaluateFight(characters[4])) });
+
+//Weapon test:
+// characters.forEach(obj => { console.log(obj.describe()) });
