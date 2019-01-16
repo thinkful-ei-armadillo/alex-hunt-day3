@@ -64,6 +64,10 @@ const objIterate = {
 //     console.log(key+": "+objIterate[key]);
 // }
 
+//------------------//
+//Arrays of objects://
+//------------------//
+
 const employees = [
     { name: 'Joe', jobTitle: 'Manager', boss: 'Rebecca' },
     { name: 'Bob', jobTitle: 'Worker', boss: 'Joe' },
@@ -76,6 +80,10 @@ const employees = [
 // employees.forEach(obj => {
 //     console.log(`${obj.name} has the title of: ${obj.jobTitle}`);
 // });
+
+//-----------------------------//
+//Properties that aren't there://
+//-----------------------------//
 
 employees.forEach(obj => {
     console.log(`${obj.jobTitle} ${obj.name} reports to ${obj.boss ? 'reports to '+obj.boss : "doesn't report to anybody"}.`);
