@@ -21,3 +21,11 @@ function personMaker() {
     };
     return person;
 }
+
+//----------------------------//
+// Object Drills 2:           //
+//----------------------------//
+
+function makeStudentReport(data) {
+    return data.map(obj => `${obj.name}: ${obj.grade}`);
+}
