@@ -139,3 +139,61 @@ let characters = [
 
 //Weapon test:
 // characters.forEach(obj => { console.log(obj.describe()) });
+
+
+//-------------------------//
+// BONUS: A Database Search//
+//-------------------------//
+
+const HEROES = [
+    { id: 1, name: 'Captain America', squad: 'Avengers' },
+    { id: 2, name: 'Iron Man', squad: 'Avengers' },
+    { id: 3, name: 'Spiderman', squad: 'Avengers' },
+    { id: 4, name: 'Superman', squad: 'Justice League' },
+    { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+    { id: 6, name: 'Aquaman', squad: 'Justice League' },
+    { id: 7, name: 'Hulk', squad: 'Avengers' },
+];
+
+const findOne = function(arr, query) {
+    const filter = function(obj) {
+        for (let idx in searchParameters) {
+            const key = searchParameters[idx];
+            if (!(query[key] in obj || query[key] === obj[key])) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    const searchParameters = Object.keys(query);
+    const result = arr.find(obj => filter(obj));
+    return result ? result : null;
+}
+
+//Test:
+// console.log(findOne( HEROES, { id: 2, name: 'Aquaman' }  ));
+
+//----------------------------//
+// BONUS II: A Database Search//
+//----------------------------//
+
+const Database = {
+    store: {
+        heroes: [
+            { id: 1, name: 'Captain America', squad: 'Avengers' },
+            { id: 2, name: 'Iron Man', squad: 'Avengers' },
+            { id: 3, name: 'Spiderman', squad: 'Avengers' },
+            { id: 4, name: 'Superman', squad: 'Justice League' },
+            { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+            { id: 6, name: 'Aquaman', squad: 'Justice League' },
+            { id: 7, name: 'Hulk', squad: 'Avengers' },
+        ]
+    },
+    findOne: function(query) {
+        return findOne(this.store.heroes,query); //why rewrite the function saved above when I can just pass the udpated variables...
+    }
+};
+
+//Test:
+// console.log(Database.findOne({ id: 2 }));
