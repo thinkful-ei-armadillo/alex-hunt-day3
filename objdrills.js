@@ -46,3 +46,20 @@ function validateKeys(object, expectedKeys) {
     }
     return (expectedKeys.length === Object.keys(object).length);
 }
+
+//--------------------------------------//
+//Iterating over an object's properties://
+//--------------------------------------//
+
+const objIterate = {
+    foo: 1,
+    bar: 2,
+    fum: 3,
+    quux: 4,
+    spam: 5,
+}
+
+//Test:
+// for (let key in objIterate) {
+//     console.log(key+": "+objIterate[key]);
+// }
