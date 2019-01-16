@@ -63,3 +63,29 @@ const objIterate = {
 // for (let key in objIterate) {
 //     console.log(key+": "+objIterate[key]);
 // }
+
+//------------------//
+//Arrays of objects://
+//------------------//
+
+const employees = [
+    { name: 'Joe', jobTitle: 'Manager', boss: 'Rebecca' },
+    { name: 'Bob', jobTitle: 'Worker', boss: 'Joe' },
+    { name: 'Alex', jobTitle: 'King', boss: null },
+    { name: 'Rebecca', jobTitle: 'CEO', boss: 'Alex' },
+    { name: 'Emily', jobTitle: 'CFO', boss: 'Rebecca' }
+]
+
+//Test:
+// employees.forEach(obj => {
+//     console.log(`${obj.name} has the title of: ${obj.jobTitle}`);
+// });
+
+//-----------------------------//
+//Properties that aren't there://
+//-----------------------------//
+
+employees.forEach(obj => {
+    console.log(`${obj.jobTitle} ${obj.name} reports to ${obj.boss ? 'reports to '+obj.boss : "doesn't report to anybody"}.`);
+});
+
