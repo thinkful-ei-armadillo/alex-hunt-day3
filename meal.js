@@ -8,4 +8,6 @@ const meals = [
     'supper'
 ]
 
-console.log(meals[3]);
+const fourth_meal = meals[3];
+
+console.log(fourth_meal);
